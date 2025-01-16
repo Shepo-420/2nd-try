@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills with Icons</title>
+    
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298); /* Gradient background */
+            color: #fff; /* White text for better readability */
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
+        }
+
+        /* Container and Section Styling */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1); /* Transparent white for subtle distinction */
+            padding: 30px;
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+        }
+
+        /* Section Styling */
+        .technical-skills, .professional-skills {
+            width: 48%;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease-in-out;
+            color: #fff;
+        }
+
+        .technical-skills:hover, .professional-skills:hover {
+            background-color: rgba(0, 0, 0, 0.7); /* Darker on hover */
+            transform: translateY(-5px);
+        }
+
+        h3 {
+            text-align: center;
+            color: #ffcc00; /* Gold text */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Glow-like shadow */
+            margin-bottom: 20px;
+        }
+
+        /* Skill Bar Styling */
+        .skill-bar {
+            margin: 20px 0;
+        }
+
+        .skill-bar span {
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Icon styling */
+        .skill-bar span i {
+            margin-right: 10px;
+            color: #ffcc00;
+        }
+
+        .bar {
+            background-color: rgba(255, 255, 255, 0.2); /* Light bar background */
+            border-radius: 20px;
+            padding: 5px;
+            margin: 10px 0;
+            height: 25px;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 25px;
+            color: white;
+            font-weight: bold;
+            transition: width 1s ease-in-out;
+        }
+
+        .bar-fill.html { width: 0; background-color: #4CAF50; }
+        .bar-fill.css { width: 0; background-color: #2196F3; }
+        .bar-fill.js { width: 0; background-color: #FF5722; }
+        .bar-fill.react { width: 0; background-color: #9C27B0; }
+
+        /* Professional Skills Circles */
+        .circle-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .circle {
+            width: 150px;
+            height: 150px;
+            background-color: rgba(255, 255, 255, 0.2); /* Light circle background */
+            border-radius: 50%;
+            border: 10px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            margin: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            transition: all 1s ease-in-out;
+        }
+
+        .circle:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6); /* Glow effect */
+        }
+
+        .circle .label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Icons for Professional Skills */
+        .circle p i {
+            font-size: 1.5em;
+            color: #ffcc00;
+        }
+
+        /* Colors for Professional Skills */
+        .circle.teamwork {
+            border-color: #FF9800;
+            background: conic-gradient(#FF9800 0%, #ddd 100%);
+        }
+
+        .circle.creativity {
+            border-color: #4CAF50;
+            background: conic-gradient(#4CAF50 0%, #ddd 100%);
+        }
+
+        .circle.project-management {
+            border-color: #2196F3;
+            background: conic-gradient(#2196F3 0%, #ddd 100%);
+        }
+
+        .circle.communication {
+            border-color: #E91E63;
+            background: conic-gradient(#E91E63 0%, #ddd 100%);
+        }
+
+        /* Trigger animations on load */
+        body.loaded .bar-fill.html { width: 90%; }
+        body.loaded .bar-fill.css { width: 80%; }
+        body.loaded .bar-fill.js { width: 70%; }
+        body.loaded .bar-fill.react { width: 85%; }
+
+        body.loaded .circle.teamwork {
+            background: conic-gradient(#FF9800 75%, #ddd 25%);
+        }
+
+        body.loaded .circle.creativity {
+            background: conic-gradient(#4CAF50 85%, #ddd 15%);
+        }
+
+        body.loaded .circle.project-management {
+            background: conic-gradient(#2196F3 90%, #ddd 10%);
+        }
+
+        body.loaded .circle.communication {
+            background: conic-gradient(#E91E63 95%, #ddd 5%);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .technical-skills, .professional-skills {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Button Styling */
+        .navigation-buttons {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .navigation-buttons button {
+            background-color: #ffcc00;
+            color: #333;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navigation-buttons button:hover {
+            background-color: #e1a800;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Technical and Professional</h1>
+<h2>My Skills</h2>
+
+<div class="container">
+    <!-- Technical Skills Section -->
+    <div class="technical-skills">
+        <h3>Technical Skills</h3>
+
+        <div class="skill-bar">
+            <span><i class="fas fa-code"></i> HTML</span>
+            <div class="bar">
+                <div class="bar-fill html">90%</div>
+            </div>
+        </div>
+
+        <div class="skill-bar">
+            <span><i class="fab fa-css3-alt"></i> CSS</span>
+            <div class="bar">
+                <div class="bar-fill css">80%</div>
+            </div>
+        </div>
+
+        <div class="skill-bar">
+            <span><i class="fab fa-js"></i> JavaScript</span>
+            <div class="bar">
+                <div class="bar-fill js">70%</div>
+            </div>
+        </div>
+
+        <div class="skill-bar">
+            <span><i class="fab fa-react"></i> React</span>
+            <div class="bar">
+                <div class="bar-fill react">85%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Professional Skills Section -->
+    <div class="professional-skills">
+        <h3>Professional Skills</h3>
+
+        <div class="circle-container">
+            <div class="circle teamwork">
+                <div class="label">75%</div>
+                <p style="text-align:center;"><i class="fas fa-users"></i> Teamwork</p>
+            </div>
+
+            <div class="circle creativity">
+                <div class="label">85%</div>
+                <p style="text-align:center;"><i class="fas fa-lightbulb"></i> Creativity</p>
+            </div>
+
+            <div class="circle project-management">
+                <div class="label">90%</div>
+                <p style="text-align:center;"><i class="fas fa-tasks"></i> Project Management</p>
+            </div>
+
+            <div class="circle communication">
+                <div class="label">95%</div>
+                <p style="text-align:center;"><i class="fas fa-comments"></i> Communication</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Navigation Buttons Section -->
+<div class="navigation-buttons">
+    <button onclick="window.history.back();">Go Back</button>
+    <button onclick="window.location.href='project2.html';">Home Page</button>
+</div>
+
+<script>
+    // Trigger animation after the page loads
+    window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+    });
+</script>
+
+</body>
+</html>
+
